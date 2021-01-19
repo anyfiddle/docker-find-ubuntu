@@ -31,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: anyfiddle/firecracker-rootfs-builder:latest
-      options: "--entrypoint /bin/sh"
+      options: "--entrypoint /bin/sh --privileged"
     steps:
     - uses: actions/checkout@v2
     - name: Buidl docker root fs
