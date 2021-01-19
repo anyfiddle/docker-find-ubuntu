@@ -34,7 +34,9 @@ jobs:
       options: "--entrypoint /bin/sh"
     steps:
     - uses: actions/checkout@v2
-    - shell: sh
+    - name: Buidl docker root fs
+      shell: sh
       run: |
+        cd /workspace
         ls
-        ./create-rootfs.sh anyfiddle/firecracker-ubuntu-rootfs:latest
+        ./create-rootfs.sh anyfiddle/find-ubuntu:latest
