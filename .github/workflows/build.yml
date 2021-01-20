@@ -50,6 +50,4 @@ jobs:
       env:
         TAG_REF: ${{ github.ref }}
       run: |
-        version="${TAG_REF/refs\/tags\//}"
-        gsutil cp /output/image.ext4 gs://anyfiddle-find/rootfs/ubuntu-image-${version}.ext4
-        gsutil cp gs://anyfiddle-find/rootfs/ubuntu-image-${version}.ext4 gs://anyfiddle-find/rootfs/ubuntu-image-latest.ext4
+        gsutil cp /output/image.ext4 gs://anyfiddle-find/rootfs/ubuntu-image-latest.ext4
