@@ -48,6 +48,5 @@ jobs:
 
     - name: Uploading latest image
       run: |
-        version="${GITHUB_REF/refs\/tags\//}"
         gcloud info
-        gsutil cp /output/image.ext4 gs://anyfiddle-find/rootfs/ubuntu-image-${version}.ext4
+        gsutil cp /output/image.ext4 gs://anyfiddle-find/rootfs/ubuntu-image-latest.ext4
