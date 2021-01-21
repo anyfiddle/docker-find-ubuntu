@@ -3,7 +3,7 @@ Description=Anyfiddle runner for accessing files and running apps
 [Service]
 User=ubuntu
 ​
-ExecStart=/var/runner/anyfiddle-runner
+ExecStart=/var/runner/anyfiddle/anyfiddle/anyfiddle-runner
 
 SuccessExitStatus=143
 TimeoutStopSec=10
