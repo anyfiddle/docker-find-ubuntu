@@ -58,10 +58,13 @@ COPY ./.bashrc /home/ubuntu/.bashrc
 COPY ./netplan-config.yaml /etc/netplan/config.yaml
 COPY ./prepare.sh /prepare.sh
 
+COPY anyfiddle-runner.service /etc/systemd/system/anyfiddle-runner.service
+
 RUN runnerVersion=$(curl https://anyfiddle-runner-releases.s3-us-west-2.amazonaws.com/latest-version-master.txt) && \
     wget https://anyfiddle-runner-releases.s3-us-west-2.amazonaws.com/anyfiddle-${runnerVersion}.tar.gz -O anyfiddle-runner.tar.gz && \
     mkdir -p /var/runner/anyfiddle && \
     tar -xf anyfiddle-runner.tar.gz -C /var/runner/anyfiddle && \
-    rm anyfiddle-runner.tar.gz
+    rm anyfiddle-runner.tar.gz && \
+    ln -s /etc/systemd/system/anyfiddle-runner.service /etc/systemd/system/multi-user.target.wants/anyfiddle-runner.service
 
-COPY anyfiddle-runner.service /etc/systemd/system/anyfiddle-runner.service
+
