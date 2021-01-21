@@ -1,0 +1,14 @@
+[Unit]
+Description=Anyfiddle runner for accessing files and running apps
+[Service]
+User=ubuntu
+​
+ExecStart=/var/runner/anyfiddle-runner
+
+SuccessExitStatus=143
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
